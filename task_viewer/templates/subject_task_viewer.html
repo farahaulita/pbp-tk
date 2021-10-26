@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task Viewer</title>
+    <style>
+       * {
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+
+      .nama-subjek {
+         text-align: left;
+         margin-left: 10px;
+         margin-top: 10px;
+       }
+
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1 class="nama-subjek" style="color: black; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> <!--{{ subject.name }}--> Biology</h1>
+  </br>
+
+  <div class="container p-3 my-3 bg-dark">
+    <h5 style="text-align: center; color: white; margin-bottom: 15px;">{#{task.name}#} Tugas apa</h5>
+    <p style="color: white; padding-left: 5px;">{#{task.description}#} tugas ini harus dikumpulkan tepat waktu</p>
+    <p>Deadline: {#{task.deadline}#}</p>
+  </div>
+  {% now "H:i" %}
+  {% now "l, d/m/Y" %}
+
+  </body>
+</html>
