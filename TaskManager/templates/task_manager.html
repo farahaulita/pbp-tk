@@ -57,143 +57,42 @@
       </div>
   </nav>
 
-    </br>
-    </br>
-    </br>
-    <h1 class="nama-subjek" style="color: #cc00cc; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; padding-left: 20px;"> <!--{{ subject.name }}--> Biology</h1>
-  </br>
 
+   
+  </br>
+  {% if subjects %}
+    {% for key, value in subjects.items %}
+     <h1 class="nama-subjek" style="color: #cc00cc; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; padding-left: 20px;">{{key}}</h1>
+    </br>
+    </br>
+    </br>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-4">
-          {#% if subject %#}
-            {#% for task in subject %#}
-          <div class="card" style="height: 450px; border-radius: 15px 15px 15px 15px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);">
-              <div class="card-header" style="background-color:#cc00cc; border-radius: 15px 15px 15px 15px;">
-                <h5 style="text-align: center; color: white;">{#{task.name}#} Tugas Makalah Bahasa Indonesia</h5>
+          {% for task in value %}
+              <div class="col-md-4">
+                <div class="card" style="height: 450px; border-radius: 15px 15px 15px 15px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);">
+                    <div class="card-header" style="background-color:#cc00cc; border-radius: 15px 15px 15px 15px;">
+                      <h5 style="text-align: center; color: white;">{{task.Name}}</h5>
+                    </div>
+                    <div class="card-body d-flex flex-column scroll">
+                      <h6 style="text-align: left; font-weight: 1000; font-size: larger;">Deskripsi</h6>
+                      </br>
+                      <!-- {{task.description}} -->
+                      {{task.Description}}
+                    </div>
+                    <div class="card-footer mt-auto text-center;" style="border-radius: 0 0 15px 15px; background-color: #cc00cc; padding-top: 0;" >
+                      <a style="margin-top: 10px; font-size:larger;" href="http://localhost:8000/view-subject-task" class="btn button-color btn-block">Upload File</a>
+                    </div>
+                </div>
+              </br>
+              </br>
+              </br>
               </div>
-              <div class="card-body d-flex flex-column scroll">
-                <h6 style="text-align: left; font-weight: 1000; font-size: larger;">Deskripsi</h6>
-                </br>
-                <!-- {{task.description}} -->
-                Tugas ini sangat susah
-              </div>
-              <div class="card-footer mt-auto text-center;" style="border-radius: 0 0 15px 15px; background-color: #cc00cc; padding-top: 0;" >
-                <a style="margin-top: 10px; font-size:larger;" href="http://localhost:8000/view-subject-task" class="btn button-color btn-block">Upload File</a>
-              </div>
-          </div>
-        </br>
-      </br>
-            {#% endfor %#}
-          {#% endif %#}
-        </div>
-
-
-        <div class="col-md-4">
-          {#% if subject %#}
-            {#% for task in subject %#}
-          <div class="card" style="height: 450px; border-radius: 15px 15px 15px 15px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);">
-              <div class="card-header" style="background-color:#cc00cc; border-radius: 15px 15px 15px 15px;">
-                <h5 style="text-align: center; color: white;">{#{task.name}#} Tugas Penelitian</h5>
-              </div>
-              <div class="card-body d-flex flex-column scroll">
-                <h6 style="text-align: left; font-weight: 1000; font-size: larger;">Deskripsi</h6>
-                </br>
-                <!-- {{task.description}} -->
-                Tugas ini sangat susah jasdfasdkfsadfjsadfsafsadfsajfasfkaskdjfkasjfksafj
-                asdfjkafdjakljfakljflasdjflajdfka
-                ajfkaskjfsajfjsaldfkasjfklsadfjaf
-                asdjfjasfdjksajfdklsajdfkjsaf
-                asdjfklasjfklasdfjsadfljsafjk;asjdfasjddfas
-                dfaskdfljaslkdfjaskjfklsajdflajsflkjsadf
-                asdfaskl;dfjaslkfjd;lsajdf;ksajflkjawojiofjawf
-                fjsadfjs;ajfaslfkjasf
-                ;ajkldfjkasdfjksadlfjlsakjf;ksa
-                asdfkasjfsakdfjlksaf
-                adfasdfsafafasdf
-                dfaskdfljaslkdfjaskjfklsajdflajsflkjsadfasdfsdf
-              </div>
-              <div class="card-footer mt-auto text-center" style="background-color: #cc00cc; border-radius: 0 0 15px 15px; padding-top: 0;" >
-                <a style=" margin-top: 10px; font-size: larger;" href="http://localhost:8000/view-subject-task" class="btn button-color btn-block">Upload File</a>
-              </div>
-          </div>
-        </br>
-            {#% endfor %#}
-          {#% endif %#}
-        </div>
-
-        <div class="col-md-4">
-          {#% if subject %#}
-            {#% for task in subject %#}
-          <div class="card" style="height: 450px; border-radius: 15px 15px 15px 15px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);">
-              <div class="card-header" style="background-color:#cc00cc; border-radius: 15px 15px 15px 15px;">
-                <h5 style="text-align: center; color: white;">{#{task.name}#} Tugas Makalah Bahasa Indonesia</h5>
-              </div>
-              <div class="card-body d-flex flex-column scroll">
-                <h6 style="text-align: left; font-weight: 1000; font-size: larger;">Deskripsi</h6>
-                </br>
-                <!-- {{task.description}} -->
-                Tugas ini sangat susah
-                asdfkasjfsakdfjlksafasdf
-
-                adsfasdfs
-              </div>
-              <div class="card-footer mt-auto text-center;" style="border-radius: 0 0 15px 15px; background-color: #cc00cc; padding-top: 0;" >
-                <a style="margin-top:10px; font-size: larger;" href="http://localhost:8000/view-subject-task" class="btn button-color btn-block">Upload File</a>
-              </div>
-          </div>
-        </br>
-            {#% endfor %#}
-          {#% endif %#}
-        </div>
-
-        <div class="col-md-4">
-          {#% if subject %#}
-            {#% for task in subject %#}
-          <div class="card" style="height: 450px; border-radius: 15px 15px 15px 15px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);">
-              <div class="card-header" style="background-color:#cc00cc; border-radius: 15px 15px 15px 15px;">
-                <h5 style="text-align: center; color: white;">{#{task.name}#} Tugas Penelitian</h5>
-              </div>
-              <div class="card-body d-flex flex-column scroll">
-                <h6 style="text-align: left; font-weight: 1000; font-size: larger;">Deskripsi</h6>
-                </br>
-                <!-- {{task.description}} -->
-                Tugas ini sangat susah jasdfasdkfsadfjsadfsafsadfsajfasfkaskdjfkasjfksafj
-                asdfjkafdjakljfakljflasdjflajdfka
-                ajfkaskjfsajfjsaldfkasjfklsadfjaf
-                asdjfjasfdjksajfdklsajdfkjsaf
-                asdjfklasjfklasdfjsadfljsafjk;asjdfasjddfas
-                dfaskdfljaslkdfjaskjfklsajdflajsflkjsadf
-                asdfaskl;dfjaslkfjd;lsajdf;ksajflkjawojiofjawf
-                fjsadfjs;ajfaslfkjasf
-                ;ajkldfjkasdfjksadlfjlsakjf;ksa
-                asdfkasjfsakdfjlksaf
-                adfasdfsafafasdf
-                dfaskdfljaslkdfjaskjfklsajdflajsflkjsadfasdfsdf
-                afafdasdfasdf
-                adfasdfsafafasdf
-                adsfasfsafads
-              </div>
-              <div class="card-footer mt-auto text-center" style="background-color: #cc00cc; border-radius: 0 0 15px 15px; padding-top: 0;" >
-                <a style=" margin-top: 10px; font-size: larger;" href="http://localhost:8000/view-subject-task" class="btn button-color btn-block">Upload File</a>
-              </div>
-          </div>
-        </br>
-            {#% endfor %#}
-          {#% endif %#}
-        </div>
-       
+              {% endfor %}
 
       </div>
     </div>
-
-    <div>
-    {% if subjects %}
-      {% for sub in subjects %}
-      <p> {{sub.Name}} </p>
-     {% endfor %}
-   {% endif %}
-    </div>
-
+  {% endfor %}
+{% endif %}
   </body>
 </html>

@@ -7,8 +7,11 @@ from django.contrib.auth.decorators import login_required
 def taskmanager(request, name):
     elemensekolah = request.user
     subjects = elemensekolah.subjects.all()
+    task = {}
+    for sub in subjects:
+        task[sub.Name] = sub.task_set.all()
     response = {'user': elemensekolah,
-                'subjects': subjects}
+                'subjects': task}
     if elemensekolah.get_username() == name:
         return render(request, 'task_manager.html', response)
     else:
