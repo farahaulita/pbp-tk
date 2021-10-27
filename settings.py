@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'TaskManager',
     'login',
 ]
 
@@ -93,7 +92,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project_name.wsgi.application'
-
 
 
 # Database
