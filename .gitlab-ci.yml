@@ -17,7 +17,6 @@ cache:
 
 .django_before_script: &django_before_script |-
   pip install -r requirements.txt
-  pip install django-widget-tweaks
   python manage.py collectstatic --no-input
 
 .coverage_artifacts: &coverage_artifacts
@@ -32,8 +31,10 @@ UnitTest:
   before_script:
     - *django_before_script
   script:
-    - coverage run --parallel --include="./*" --omit="manage.py,project_name/*"
+    - pip install django-widget-tweaks
+      coverage run --parallel --include="./*" --omit="manage.py,project_name/*"
       manage.py test --exclude-tag=functional
+
 
 FunctionalTest:
   <<: *disable_on_template
