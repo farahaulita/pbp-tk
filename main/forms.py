@@ -1,5 +1,7 @@
-from django.db import models
+from django import forms
 from .models import Suggestion
 
-class SuggestionForm(models.ModelForm):
-    pass
+class SuggestionForm(forms.ModelForm):
+    class Meta:
+        model = Suggestion
+        fields = "__all__"
