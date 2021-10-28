@@ -16,7 +16,9 @@ body {
 }
 
 .btn-primary:hover {
-    
+    background-color: transparent !important;
+    color: white;
+    border-color: white;
 }
 
 .custom-bg {
@@ -51,4 +53,58 @@ body {
 
 .header-content .main-content {
   font-size: 1.5vw;
+}
+
+.about-content {
+    padding: 20px;
+}
+
+.about-content .title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.main-content .main {
+    display: flex;
+    padding: 10px;
+    border-radius: 20px;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.main span h1 {
+    font-size: x-large;
+    margin-top: 20px;
+}
+
+.main-content .main span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+span .desc {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+span img {
+    width: 100px;
+}
+
+.intuitive {
+    filter: invert();
+}
+
+.about-content span .desc {
+    justify-self: end;
+}
+
+.friendly {
+    filter: invert();
+}
+
+.about-content .main-content div:nth-of-type(3) {
+    text-align: center;
 }
