@@ -50,12 +50,17 @@
       <h1 class="text">Hello! Let's start your journey with LeaN</h1>
   
 	</header>
+  
 <br>
+
+
 	<form class="formlogin">
+    <form method="POST" action="">
+    {% csrf_token %}
 		<div class="uname">
 			<label for="username">Username</label>
       <br>
-      <input class="inputlogin" type="text" id="username" name="username" placeholder= "Write your username" required>
+      <input class="inputlogin" type="username" id="username" name="username" placeholder= "Write your username" required>
     </div>
     <div class="pass">
       <label for="password">Password</label>
@@ -72,9 +77,15 @@
     </div> -->
     <br>
     <div class="tombol">
-      <button class="btn" type="submit">SUBMIT</button>
+      <button class="btn" type="submit" value="Login">SUBMIT</button>
     </div>
     </form>
+    <br>
+    <br>
+
+    {% for message in messages %}
+					<p id="messages">{{message}}</p>
+				{% endfor %}	
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

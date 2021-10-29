@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from login.models import User
-from .forms import LoginForm
-from django.contrib.auth import authenticate, login
+# from .forms import LoginForm
 from django.http.response import HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 # Create your views here.
 
@@ -13,22 +14,39 @@ from django.http.response import HttpResponseRedirect
 
 
 def login_view(request):
-    form = LoginForm(request.POST or None)
-    temp = None
-    if request.method == 'POST':
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
+    if request.user.is_authenticated:
+        # return redirect('landingpage')
+        print("belumlogut")
+        logout(request)
+        return redirect('login')
+        pass
+    else: 
+        # form = LoginForm(request.POST or None)
+        # temp = None
+        if request.method == 'GET':
+            # if form.is_valid():
+            username = request.GET.get('username')
+            password = request.GET.get('password')
+            user = authenticate(request, username=username, password=password)
             if user is not None and user.is_student:
                 login(request, user)
+                print("masuk stud")
                 return redirect('student')
             elif user is not None and user.is_teacher:
-                login(request, user)
-                return redirect('teacher')
+                 login(request, user)
+                 return redirect('teacher')
+            else:
+                messages.info(request, 'Username OR password is incorrect')
+                print("salah")
         else:
-            temp = 'error validating form'
-    return render(request, 'login.html', {'form': form, 'temp': temp})
+            print("gbs")
+
+    context ={}
+    return render(request, 'login.html', context)
+
+def logoutUser(request):
+	logout(request)
+	return redirect('login')
 
 def student(request):
     return render(request,'student.html')   #dashboard msg msg
