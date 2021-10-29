@@ -16,7 +16,6 @@ from django.contrib import messages
 def login_view(request):
     if request.user.is_authenticated:
         # return redirect('landingpage')
-        print("belumlogut")
         logout(request)
         return redirect('login')
         pass
@@ -30,17 +29,12 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None and user.is_student:
                 login(request, user)
-                print("masuk stud")
                 return redirect('student')
             elif user is not None and user.is_teacher:
                  login(request, user)
                  return redirect('teacher')
             else:
                 messages.info(request, 'Username OR password is incorrect')
-                print("salah")
-        else:
-            print("gbs")
-
     context ={}
     return render(request, 'login.html', context)
 
