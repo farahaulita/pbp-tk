@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'dashboard',
+    'login',
 ]
 
 MIDDLEWARE = [
@@ -101,6 +103,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+AUTH_USER_MODEL="login.User"
 
 # Set database settings automatically using DATABASE_URL.
 if PRODUCTION:
