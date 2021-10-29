@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <style>
+        table{
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: auto;
+        }
+
+        #judul{
+            background-color: grey;
+            margin-left: 5%;;
+            font-weight: bold;
+            font-size: xx-large;
+            text-align: left;
+            color: whitesmoke;
+
+        }
+
+        table th{
+
+            text-align: left;
+            padding-top: 4%;
+        }
+
+        table tr{
+            padding: auto;;
+        }
+
+        table{
+            background-color: gainsboro ;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <script>
+      function pageRedirect(key) {
+        window.location.replace(key);
+      }   
+    </script>
+    <nav class="navbar d-relative navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">LeaN</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" id="customNavbar">
+          <li class="nav-item">
+  
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    </br>
+    </br>
+
+    <form action="" method="POST">
+        <table>
+            <tr>
+                <td colspan="2", id="judul">Add Task</td>
+            </tr>
+            {% csrf_token %}
+            {{form}}
+            <th><input type="submit"> </th>
+        </table>
+            
+
+        
+    </form>
+  </body>
+</html>
