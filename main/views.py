@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
+import json
 from .forms import SuggestionForm
 
 latest_response = None
@@ -9,12 +10,13 @@ def home(request):
     context = {}
 
     form = SuggestionForm(request.POST or None, request.FILES or None)
-
-    if form.is_valid():
-        latest_response = convert_suggestion_to_json(request.POST.get('name'), request.POST.get('email'), request.POST.get('message'))
-        form.save()
-        if request.method == 'POST':
-            return redirect('main:success')
+    if request.method == 'POST':
+        form = SuggestionForm(request.POST)
+        if form.is_valid():
+            latest_response = convert_suggestion_to_json(request.POST.get('name'), request.POST.get('email'), request.POST.get('message'))
+            form.save()
+            if request.method == 'POST':
+                return redirect('main:success')
 
     context['form'] = form
     return render(request, 'main/home.html', context)
@@ -26,15 +28,16 @@ def success_page(request):
     if latest_response == None:
         return redirect('main:home')
 
+    data = json.loads(latest_response.content)
     # Get data from JSON and reset JSON
-    # response = {
-    #     'name' : latest_response['name'],
-    #     'email' : latest_response['email'],
-    #     'message' : latest_response['message'],
-    # }
+    response = {
+        'name' : data['name'],
+        'email' : data['email'],
+        'message' : data['message'],
+    }
     latest_response = None
-
-    return render(request, 'main/success.html')
+    
+    return render(request, 'main/success.html', response)
 
 
 def convert_suggestion_to_json(name, email, message):
