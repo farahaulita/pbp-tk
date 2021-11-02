@@ -28,10 +28,10 @@ def login_view(request):
     else: 
         # form = LoginForm(request.POST or None)
         # temp = None
-        if request.method == 'GET':
+        if request.method == 'POST':
             # if form.is_valid():
-            username = request.GET.get('username')
-            password = request.GET.get('password')
+            username = request.POST.get('username')
+            password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None and user.is_student:
                 login(request, user)
@@ -45,8 +45,8 @@ def login_view(request):
     return render(request, 'login.html', context)
 
 def logoutUser(request):
-	logout(request)
-	return redirect('login')
+ logout(request)
+ return redirect('login')
 
 def student(request):
     return render(request,'student.html')   #dashboard msg msg

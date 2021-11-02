@@ -30,7 +30,9 @@
                     <a class="nav-link" href="#">Contact Us</a>
                 </li>
             </ul>
-            <button class="btn btn-primary btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+            <form action="/login">
+                <button class="btn btn-primary btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+            </form>
         </div>
     </nav>
     <div class="container-fluid custom-bg" id="fillScreen">
@@ -76,7 +78,7 @@
 
             <div>
                 <!-- ganti hrefnya ke login -->
-                Try our demo <a href="https://www.google.com">here</a> or press the login button on the upper right corner
+                Try our demo <a href="/login">here</a> or press the login button on the upper right corner
             </div>
 
         </div>
@@ -85,7 +87,7 @@
     <div class="container-fluid suggestion-form p-5">
         <form class="container" action="" method="POST">
             {% csrf_token %}
-            <legend>Questions and Suggestions</legend>
+            <legend>Feedback Form</legend>
             <div class="mb-3">
                 <label for="titleInput" class="form-label">Name</label>
                 {% render_field form.name class="form-control" placeholder="John Doe" %}

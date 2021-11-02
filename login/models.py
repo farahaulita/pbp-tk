@@ -6,10 +6,9 @@ class Subject(models.Model):
     Class = models.CharField(max_length=300)
     Name = models.CharField(max_length=300)
     def __str__(self):
-        return self.Name+" - "+self.Class
+        return (str(self.Name) if self.Name else '') + " - " + (str(self.Class) if self.Class else '')
 
 class User(AbstractUser):
-    pass
     # name = models.BooleanField('name', default=False)
     # password = models.BooleanField('password', default=False)
     is_student = models.BooleanField(default=False)
@@ -39,7 +38,7 @@ class Task(models.Model):
     deadline = models.DateTimeField()
 
     def __str__(self):
-        return self.Name
+        return (str(self.Name) if self.Name else '')
 
 class Submissions(models.Model):
     NamaMurid = models.CharField(max_length=300)
