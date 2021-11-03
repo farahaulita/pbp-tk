@@ -16,8 +16,14 @@ from django.contrib import messages
 def login_view(request):
     if request.user.is_authenticated:
         # return redirect('landingpage')
-        print("belumlogut")
-        logout(request)
+        userrole = request.user
+
+        if userrole.is_student:
+            return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+userrole.get_username()+'/student')
+        
+        else :
+            return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+userrole.get_username()+'/teacher')
+        
         pass
     else: 
         # form = LoginForm(request.POST or None)
@@ -29,17 +35,12 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None and user.is_student:
                 login(request, user)
-                print("masuk stud")
-                return redirect(user.get_username()+"/taskmanager")
+                return redirect('/dashboard/'+ user.username +'/student')
             elif user is not None and user.is_teacher:
                  login(request, user)
-                 return redirect('')
+                 return redirect('/dashboard/'+ user.username +'/teacher')
             else:
                 messages.info(request, 'Username OR password is incorrect')
-                print("salah")
-        else:
-            print("gbs")
-
     context ={}
     return render(request, 'login.html', context)
 
