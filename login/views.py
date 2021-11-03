@@ -35,10 +35,10 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None and user.is_student:
                 login(request, user)
-                return redirect('/dashboard/'+ user.username +'/student')
+                return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+userrole.get_username()+'/student')
             elif user is not None and user.is_teacher:
                  login(request, user)
-                 return redirect('/dashboard/'+ user.username +'/teacher')
+                 return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+userrole.get_username()+'/teacher')
             else:
                 messages.info(request, 'Username OR password is incorrect')
     context ={}
