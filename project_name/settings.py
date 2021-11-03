@@ -50,7 +50,7 @@ if not PRODUCTION:
 
 INSTALLED_APPS = [
     'login',
-    #'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'main',
     'dashboard',
+    'login',
     
 ]
 

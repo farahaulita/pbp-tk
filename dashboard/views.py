@@ -20,7 +20,7 @@ def dashboard_student(request,username):
         return render(request, 'dashboard_student.html')
     
     else:
-        return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+student.get_username()+'/teacher',{'user':student.get_username()})
+        return HttpResponseRedirect('https://pbp-tk-e04.herokuapp.com//dashboard/'+student.get_username()+'/teacher',{'user':student.get_username()})
         
    
 
@@ -34,7 +34,7 @@ def dashboard_teacher(request,username):
         return render(request, 'dashboard_teacher.html', {'user':teacher.get_username()})
 
     else:
-        return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+teacher.get_username()+'/student')
+        return HttpResponseRedirect('https://pbp-tk-e04.herokuapp.com/dashboard/'+teacher.get_username()+'/student')
     
 
 
