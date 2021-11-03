@@ -19,7 +19,7 @@ import dashboard.urls as dashboard
 import login.urls as login
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('dashboard/', include(dashboard)),
     path('login/', include(login))

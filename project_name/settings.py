@@ -49,7 +49,8 @@ if not PRODUCTION:
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'login',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -58,7 +59,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'main',
     'dashboard',
-    'login',
+    
 ]
 
 MIDDLEWARE = [
@@ -169,3 +170,4 @@ for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
 # Enable compression and caching features of whitenoise.
 # You can remove this if it causes problems on your setup.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
