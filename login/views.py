@@ -19,10 +19,10 @@ def login_view(request):
         userrole = request.user
 
         if userrole.is_student:
-            return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+userrole.get_username()+'/student')
+            return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+userrole.get_username()+'/student')
         
         else :
-            return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+userrole.get_username()+'/teacher')
+            return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+userrole.get_username()+'/teacher')
         
         pass
     else: 
