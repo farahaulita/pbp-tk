@@ -1,0 +1,129 @@
+.body-form {
+  max-width: 600px;
+  height: calc(100vh - 6rem);
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-top: 1rem;
+}
+
+body{
+  margin-top: 2rem;
+}
+
+/* .topnav {
+  overflow: hidden;
+  background-color: #c084e4;
+} */
+
+.header {
+  background-color: #c084e4;
+  height: 5rem;
+  margin-bottom: 1rem;
+}
+
+  .judul{
+    width: 15rem;
+    text-align: center;
+    color: white;
+    margin: auto;
+    font-size: bold  23px;
+  }
+
+  .text{
+    width: 25rem;
+    text-align: center;
+    color: white;
+    align-content: center;
+    margin: auto;
+    font-size: 18px;
+    
+  }
+
+  .uname{
+    color: white;
+    text-align: left;
+  }
+
+  .pass{
+    color: white;
+    text-align: left;
+  }
+
+  
+  .formlogin{
+    color: white;
+    width: 14rem;
+    margin: auto;
+    align-content: center;
+    outline-style: none;
+    border: none;
+    text-align: center;
+    
+  }
+  
+  .inputlogin{
+    color: black;
+    align-content: center;
+    width: 15rem;
+    height: 2rem;
+    font-size: 13px;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+    
+    display: inline-block;
+  }
+  
+  .role{
+    text-align: left;
+    
+  }
+  
+  select{
+    width: 15rem;
+    height: 2rem;
+    text-align: center;
+  }
+  
+  .tombol{
+    margin-top: 2rem;
+    padding-top: 10px 15px;
+    text-align: center;
+  }
+  
+  .btn{
+    width: 8rem;
+    height: 3rem;
+    text-align: center;
+    background-color: rgba(36, 12, 195, 0.7);
+    border: none;
+    color: white;
+    font: bolder 16px;
+    border-radius: 3px;
+  }
+
+  button:hover{
+    box-shadow: 0 0 15px white;
+  }
+
+.coloring{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, rgba(139, 119, 235, 1), rgba(36, 12, 195, 0.7) ), url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aXNsYW1pYyUyMGJvb2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=60);
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+}
+
+#messages{
+  background-color: grey;
+  color: #fff;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+
+   

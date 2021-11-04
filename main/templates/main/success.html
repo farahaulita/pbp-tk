@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<link rel="stylesheet" href="{% static 'css/success_page_style.css'%}" />
+<title>Learning eNvironment</title>
+{% endblock meta %} {% block content %}
+<div id="overlay-gradient"></div>
+<div class="main">
+  <div class="title">Thank you for your response, {{ name }}!</div>
+  <div>
+    If your response is a question, we will send the answer to that question to
+    {{ email }}}
+  </div>
+  <div class="response-container">
+    Your response:
+    <div class="response-box">{{ message }}}</div>
+  </div>
+  <div>
+    You will be redirected to the home page in a few seconds. If you are not
+    redirected to the home page, please click <a href="../">here</a>.
+  </div>
+</div>
+<script>
+  setTimeout(function () {
+    window.location.href = "{% url 'main:home' %}";
+  }, 3000);
+</script>
+{% endblock content %}

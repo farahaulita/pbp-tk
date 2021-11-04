@@ -1,0 +1,1 @@
+setTimeout(function(){ window.navigate('../') }, 3000)

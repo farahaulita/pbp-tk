@@ -24,7 +24,6 @@ cache:
     paths:
       - .coverage*
 
-
 UnitTest:
   <<: *disable_on_template
   <<: *coverage_artifacts
@@ -45,7 +44,6 @@ FunctionalTest:
   script:
     - coverage run --parallel --include="./*" --omit="manage.py,project_name/*"
       manage.py test --tag=functional
-
 
 Coverage:
   <<: *disable_on_template
