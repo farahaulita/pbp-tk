@@ -45,7 +45,7 @@ def login_view(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('login')
+    return redirect('login:home')
 
 def student(request):
     return render(request,'student.html')   #dashboard msg msg
