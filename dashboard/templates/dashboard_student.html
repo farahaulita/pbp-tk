@@ -79,7 +79,7 @@
                     <div class="card-body">
                       <h5 class="card-title">{{subject}}</h5>
                       <p><a href='pageRedirect("{{key}}")' style="margin-top: 10px; margin-left: 3%; color: whitesmoke;" class="btn button-color btn-primary">Task Viewer</a>
-                        <a href= '' style="margin-top: 10px; margin-left: 3%;  color: whitesmoke;" class="btn button-color btn-primary">View Grades</a></p> 
+                        <a href="{% url 'grade' name= {{ subject }} %}" style="margin-top: 10px; margin-left: 3%;  color: whitesmoke;" class="btn button-color btn-primary">View Grades</a></p> 
                     </div>
                 </div>
 
