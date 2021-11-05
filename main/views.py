@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .forms import SuggestionForm
+import json
 
 latest_response = False
 name = None
