@@ -53,32 +53,30 @@
 
 
 
-        <form class="formlogin">
-            <form method="POST" action="">
-                {% csrf_token %}
-                    <div class="uname">
-                        <label for="username">Username</label>
-                        <br>
-                        <input class="inputlogin" type="username" id="username" name="username" placeholder= "Write your username" required>
-                    </div>
-                <div class="pass">
-                    <label for="password">Password</label>
-                    <br>
-                    <input class="inputlogin" type="password" id="password" name="password" placeholder= "Write your password" required>
-                </div>
-                <!-- <div class="role">
-                <label for="role">Roles</label>
-                <select class="select" required>
-                    <option value="">Pick a Role</option>
-                    <option value="Teacher">Teacher</option>
-                    <option value="Student">Student</option>
-                </select>
-                </div> -->
+        <form class="formlogin" method="POST" action=".">
+            {% csrf_token %}
+            <div class="uname">
+                <label for="username">Username</label>
                 <br>
-                <div class="tombol">
-                    <button class="btn" type="submit" value="Login">SUBMIT</button>
-                </div>
-            </form>
+                <input class="inputlogin" type="username" id="username" name="username" placeholder= "Write your username" required>
+            </div>
+            <div class="pass">
+                <label for="password">Password</label>
+                <br>
+                <input class="inputlogin" type="password" id="password" name="password" placeholder= "Write your password" required>
+            </div>
+            <!-- <div class="role">
+            <label for="role">Roles</label>
+            <select class="select" required>
+                <option value="">Pick a Role</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Student">Student</option>
+            </select>
+            </div> -->
+            <br>
+            <div class="tombol">
+                <button class="btn" type="submit" value="Login">SUBMIT</button>
+            </div>
             <br>
             <br>
 

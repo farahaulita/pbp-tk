@@ -33,9 +33,11 @@ def login_view(request):
             password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None and user.is_student:
+                print("Yes student")
                 login(request, user)
                 return redirect('/dashboard/'+ user.username +'/student')
             elif user is not None and user.is_teacher:
+                print("Yes teacher")
                 login(request, user)
                 return redirect('/dashboard/'+ user.username +'/teacher')
             else:
