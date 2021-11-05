@@ -19,6 +19,7 @@ import dashboard.urls as dashboard
 import login.urls as login
 import grade_viewer.urls as grade
 from django.conf import settings
+from TaskManager import urls as taskmanager
 from django.conf.urls.static import static
 import task_viewer.urls as task_viewer
 
@@ -30,7 +31,9 @@ urlpatterns = [
     path('dashboard/', include(dashboard)),
     path('login/', include(login)),
     path('grade/', include(grade)),
-    path('task-viewer/', include(task_viewer))
+    path('task-viewer/', include(task_viewer)).
+    path('taskmanager/', include(taskmanager)),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
