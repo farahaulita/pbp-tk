@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'dashboard',
     'login',
     'grade_viewer',
-
+    'task_viewer',
     
 ]
 
