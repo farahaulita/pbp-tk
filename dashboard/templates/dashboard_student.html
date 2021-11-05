@@ -116,7 +116,7 @@
                 <div class="card-body">
                     {{subject}}
                     <a href='pageRedirect("{{key}}")' style="margin-top: 10px; margin-left: 3%; font-size:larger; color: whitesmoke;" class="btn button-color btn-primary">Task Viewer</a>
-                    <a href='' style="margin-top: 10px; margin-left: 3%; font-size:larger; color: whitesmoke;" class="btn button-color btn-primary">View Grades</a>
+                    <a href="{% url 'grade' name=subject %}" style="margin-top: 10px; margin-left: 3%; font-size:larger; color: whitesmoke;" class="btn button-color btn-primary">View Grades</a>
                 </div>
             {% endfor %}
         </div>
