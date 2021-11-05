@@ -18,6 +18,7 @@ from django.urls import include, path
 import dashboard.urls as dashboard
 import login.urls as login
 import grade_viewer.urls as grade
+from TaskManager import urls as taskmanager
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,7 +28,8 @@ urlpatterns = [
     path('', include('main.urls')),
     path('dashboard/', include(dashboard)),
     path('login/', include(login)),
-    path('grade/', include(grade))
+    path('grade/', include(grade)),
+    path('taskmanager/', include(taskmanager))
 
 ]
 
