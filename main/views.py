@@ -12,16 +12,19 @@ def home(request):
     global name
     global email
     global message
+
     context = {}
 
     form = SuggestionForm(request.POST or None, request.FILES or None)
     if request.method == 'POST':
         form = SuggestionForm(request.POST)
         if form.is_valid():
+
             latest_response = True
             name = request.POST.get('name')
             email = request.POST.get('email')
             message = request.POST.get('message')
+
             form.save()
             if request.method == 'POST':
                 return redirect('main:success')
