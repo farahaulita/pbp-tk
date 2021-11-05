@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 
 import dj_database_url
@@ -55,13 +56,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'widget_tweaks',
     'main',
-    'dashboard',
+    'TaskManager',
     'login',
-    'grade_viewer',
-
-    
+    'dashboard',
 ]
 
 MIDDLEWARE = [
@@ -96,6 +94,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project_name.wsgi.application'
+
 
 
 # Database
@@ -154,15 +153,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 
 # This is the directory for storing `collectstatic` results.
 # This shouldn't be included in your Git repository.
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'collected_static'
 
 # You can use this directory to store project-wide static files.
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'staticfiles',
 ]
 
 # Make sure the directories exist to prevent errors when doing `collectstatic`.
@@ -171,6 +170,4 @@ for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
 
 # Enable compression and caching features of whitenoise.
 # You can remove this if it causes problems on your setup.
-
-STATICFILES_STORAGE =  'django.contrib.staticfiles.storage.StaticFilesStorage' 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

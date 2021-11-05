@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render
 from django.http import  HttpResponseRedirect
-from login.decorators import student_required, teacher_required
 from login.models import User
 from .models import Profile
 from .forms import ProfileForm
@@ -17,10 +16,10 @@ def dashboard_student(request,username):
     student = request.user
 
     if student.is_student:
-        return render(request, 'dashboard_student.html')
+        return render(request, 'dashboard_student.html', {'user':student.get_username(), 'subjects': student.subjects.all()})
     
     else:
-        return HttpResponseRedirect('/dashboard/'+student.get_username()+'/teacher',{'user':student.get_username()})
+        return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+student.get_username()+'/teacher')
         
    
 
@@ -31,10 +30,10 @@ def dashboard_teacher(request,username):
     teacher = request.user
 
     if teacher.is_teacher:
-        return render(request, 'dashboard_teacher.html', {'user':teacher.get_username()})
+        return render(request, 'dashboard_teacher.html', {'user':teacher.get_username(), 'subjects': teacher.subjects.all()})
 
     else:
-        return HttpResponseRedirect('/dashboard/'+teacher.get_username()+'/student')
+        return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+teacher.get_username()+'/student')
     
 
 
@@ -51,11 +50,12 @@ def editprofile(request,username):
 
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/dashboard/'+userrole.get_username()+'/profile')
+            return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+userrole.get_username()+'/profile')
 
     else:
         form = ProfileForm()
 
-    response = { 'form' : form }
+    response = {'form':form
+}
 
     return render(request, 'profileform.html', response )

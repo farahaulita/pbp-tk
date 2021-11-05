@@ -12,12 +12,6 @@
     <a class="nav-link" href="index.html">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Grade Viewer</span></a>
-
-<li class="nav-item active">
-            <a class="nav-link" href="index.html">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Task Manager</span></a>
-    </li>
 </li>
 
 
@@ -82,17 +76,20 @@
             <div>
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Subject</h6>
+
                 </div>
             </div>
             <!-- Card Body -->
-            <div class="card-body">
-                
+            {% for subject in subjects %}
+                <div class="card-body">
+                    {{subject}}
+                    <a href='pageRedirect("{{key}}")' style="margin-top: 10px; margin-left: 3%; font-size:larger; color: whitesmoke;" class="btn button-color btn-primary">Task Viewer</a>
                 </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 
-    {% endblock secondrow %}
+{% endblock secondrow %}
 
 
 

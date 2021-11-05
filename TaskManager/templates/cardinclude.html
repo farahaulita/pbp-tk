@@ -1,0 +1,32 @@
+                      {% for task in tasks %}
+                                        <div class="col-md-4">
+                                          <div class="card" style="height: 450px; border-radius: 15px 15px 15px 15px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);">
+                                              <div class="card-header" style="background-color:#7064d4; border-radius: 15px 15px 15px 15px;">
+                                                <h5 style="text-align: center; color: white;">{{task.Name}}</h5>
+                                              </div>
+                                              <div class="card-body d-flex flex-column scroll">
+                                                <p style="text-align: left; font-weight: 1000; font-size: medium;">Deadline: <span style="color:red">{{task.deadline}}</span></p>
+                                                <h6 style="text-align: left; font-weight: 1000; font-size: medium;">Deskripsi:</h6>
+                                                </br>
+                                                <!-- {{task.description}} -->
+                                                {{task.Description}}
+                                              </div>
+                                              <div class="card-footer mt-auto text-center;" style="border-radius: 0 0 15px 15px; background-color: #7064d4; padding-top: 0;" >
+                                                <a id="button-color" style="margin-top: 10px; font-size:medium; " href="{{subject.Name}}-{{subject.Class}}/{{task.id}}/edittask" class="btn btn-primary">Edit</a>
+                                                <a id="button-color" style="margin-top: 10px; font-size:medium;" onclick= 'deleted("{{task.id}}", "{{task.deadline}}")' class="btn  btn-danger confirm-delete">Delete</a>
+                                                <a id="button-color" style="margin-top: 10px; font-size:medium; " href="{{subject.Name}}-{{subject.Class}}/{{task.id}}/submissions" class="btn btn-secondary">Submissions</a>
+                                              </div>
+                                          </div>
+                                        </br>
+                                        </br>
+                                        </br>
+                                        </div>
+                                        <div class="modal fade">
+                                            <div>
+                                                <div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                      {% endfor %}

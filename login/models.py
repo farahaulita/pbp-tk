@@ -1,20 +1,22 @@
+from datetime import time
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
 
 # Create your models here.
 class Subject(models.Model):
     Class = models.CharField(max_length=300)
     Name = models.CharField(max_length=300)
     def __str__(self):
-        return (str(self.Name) if self.Name else '') + " - " + (str(self.Class) if self.Class else '')
+        return self.Name+" - "+self.Class
 
 class User(AbstractUser):
+    pass
     # name = models.BooleanField('name', default=False)
     # password = models.BooleanField('password', default=False)
     is_student = models.BooleanField(default=False)
     is_teacher = models.BooleanField(default=False)
     subjects = models.ManyToManyField(Subject)
-
 
 # class Student(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
@@ -36,16 +38,16 @@ class Task(models.Model):
     Description = models.TextField(max_length=300)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     deadline = models.DateTimeField()
-    score = models.IntegerField()
 
     def __str__(self):
-        return (str(self.Name) if self.Name else '')
+        return self.Name
 
 class Submissions(models.Model):
-    NamaMurid = models.CharField(max_length=300)
-    title = models.CharField(max_length=50)
+    NamaMurid = models.CharField(max_length=300, default="")
     file = models.FileField()
-    date = models.DateTimeField()
+    comment = models.TextField(max_length=100, default="")
+    date = models.DateTimeField(default=timezone.now())
+    nilai = models.CharField(max_length=20)
     ontime = models.BooleanField()
 
     task = models.ForeignKey(Task, on_delete=models.CASCADE)

@@ -68,12 +68,16 @@
             <!-- Card Header - Dropdown -->
             <div>
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Teacher</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Subject</h6>
                 </div>
             </div>
             <!-- Card Body -->
-            <div class="card-body">
-                
+            {% for subject in subjects %}
+                <div class="card-body">
+                    {{subject}}
+                    <a href='http://127.0.0.1:8000/taskmanager/{{user}}/{{subject.id}}/{{subject.Name}}-{{subject.Class}}' style="margin-top: 10px; margin-left: 3%; font-size:larger; color: whitesmoke;" class="btn button-color btn-primary">Task Manager</a>
+                </div>
+            {% endfor %}
                 </div>
             </div>
         </div>

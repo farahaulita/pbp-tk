@@ -11,7 +11,8 @@ class Profile(models.Model):
     birth_date = models.DateField(default=date.today())
     address = models.CharField(max_length=256, default="Name")
 	
-    
+    def __str__(self):
+        return User
 
     @receiver(post_save, sender=User) #add profile if user is created
     def create_user_profile(sender, instance, created, **kwargs):

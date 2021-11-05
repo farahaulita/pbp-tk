@@ -1,0 +1,18 @@
+{% extends 'task_manager.html' %}
+
+                {% block content %}
+                <h1 class="nama-subjek" style="color: blueviolet; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; margin-left: 3%; font-size: 200%;">{{subject}}</h1>
+                <a id="button-color" href='{{subject.Name}}-{{subject.Class}}/addtask' style="margin-top: 10px; margin-left: 3%; font-size:larger;" class="btn btn-primary">Add Task</a>
+                </br>
+                </br>
+                <div class="container-fluid" style="width: 97%" id="card-container">
+
+                    <!-- Page Heading -->
+
+                    <!-- Content Row 1 untuk student-->
+                    
+                    <div class="row">
+                        {% include 'cardinclude.html' %}
+                    </div>
+                </div>
+                {% endblock %}
