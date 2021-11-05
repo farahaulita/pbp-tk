@@ -56,7 +56,6 @@ def editprofile(request,username):
     else:
         form = ProfileForm()
 
-    response = {'form':form
-}
+    response = { 'form' : form }
 
     return render(request, 'profileform.html', response )
