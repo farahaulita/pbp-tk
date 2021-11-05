@@ -131,7 +131,7 @@
                             <td id="nama1">  {{ submission.NamaMurid }} </td> <!-- Menambahkan data name, npm, dan dob  pada Friend -->
                             <td id="nama2"> {{ submission.comment }} </td>
                             <td id="{{submission.ontime}}"> {{ submission.date}} </td>
-                            <td id="nama1"> <a href="">{{submission.file}}</a> </td>
+                            <td id="nama1"> <a href="/media/{{submission.file}}"download>{{submission.file}}</a> </td>
                             <td id="pesan"> {{ submission.nilai }} </td>
                             <td> <a id="button-color" style="margin-top: 10px; font-size:medium; " href="submissions/{{submission.id}}/grader" class="btn btn-primary">Grader</a> </td>
                           </tr>
