@@ -42,54 +42,50 @@
             
 
 
- <header>
-  <h2 class="judul">Login</h2>
-      <h2 class="judul">____________</h2>
-      <br>
-      <h1 class="text">Hello! Let's start your journey with LeaN</h1>
- </header>
-  
-<br>
+            <header>
+            <h2 class="judul">Login</h2>
+                <h2 class="judul">____________</h2>
+                <br>
+                <h1 class="text">Hello! Let's start your journey with LeaN</h1>
+            </header>
+            
+            <br>
 
 
 
-	<form class="formlogin">
-    <form method="POST" action="">
-    {% csrf_token %}
-		<div class="uname">
-			<label for="username">Username</label>
+        <form class="formlogin">
+            <form method="POST" action="">
+                {% csrf_token %}
+                    <div class="uname">
+                        <label for="username">Username</label>
+                        <br>
+                        <input class="inputlogin" type="username" id="username" name="username" placeholder= "Write your username" required>
+                    </div>
+                <div class="pass">
+                    <label for="password">Password</label>
+                    <br>
+                    <input class="inputlogin" type="password" id="password" name="password" placeholder= "Write your password" required>
+                </div>
+                <!-- <div class="role">
+                <label for="role">Roles</label>
+                <select class="select" required>
+                    <option value="">Pick a Role</option>
+                    <option value="Teacher">Teacher</option>
+                    <option value="Student">Student</option>
+                </select>
+                </div> -->
+                <br>
+                <div class="tombol">
+                    <button class="btn" type="submit" value="Login">SUBMIT</button>
+                </div>
+            </form>
+            <br>
+            <br>
 
-      <br>
-      <input class="inputlogin" type="username" id="username" name="username" placeholder= "Write your username" required>
-    </div>
-    <div class="pass">
-      <label for="password">Password</label>
-      <br>
-      <input class="inputlogin" type="password" id="password" name="password" placeholder= "Write your password" required>
-    </div>
-    <!-- <div class="role">
-      <label for="role">Roles</label>
-      <select class="select" required>
-          <option value="">Pick a Role</option>
-          <option value="Teacher">Teacher</option>
-          <option value="Student">Student</option>
-      </select>
-    </div> -->
-    <br>
-    <div class="tombol">
-      <button class="btn" type="submit" value="Login">SUBMIT</button>
-
-    </div>
-    </form>
-
-    <br>
-    <br>
-
-    {% for message in messages %}
-
-     <p id="messages">{{message}}</p>
-    {% endfor %} 
-    </form>
+        {% for message in messages %}
+            <p id="messages">{{message}}</p>
+        {% endfor %} 
+        </form>
     </div>
 
     <script src="https;//code.jquery-3.5.1.js"

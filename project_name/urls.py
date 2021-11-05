@@ -25,6 +25,5 @@ urlpatterns = [
     path('', include('main.urls')),
     path('dashboard/', include(dashboard)),
     path('login/', include(login)),
-    path('grade/', include(grade))
-
+    path('grade/', include(grade)),
 ]
