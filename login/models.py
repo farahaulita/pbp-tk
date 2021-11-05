@@ -47,6 +47,6 @@ class Submissions(models.Model):
     file = models.FileField()
     date = models.DateTimeField()
     ontime = models.BooleanField()
-
+    comment = models.TextField(default="")
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     murid = models.ForeignKey(User, on_delete=models.CASCADE)

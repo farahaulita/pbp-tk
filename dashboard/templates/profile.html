@@ -1,3 +1,53 @@
+<<<<<<< HEAD
+{% extends "index.html" %}
+
+{% block navbar %}
+
+<li class="nav-item active">
+    <a class="nav-link" href="index.html">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Task Viewer</span></a>
+</li>
+
+<li class="nav-item active">
+    <a class="nav-link" href="index.html">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Grade Viewer</span></a>
+
+<li class="nav-item active">
+    <a class="nav-link" href="index.html">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Task Manager</span></a>
+</li>
+</li>
+
+
+
+{% endblock navbar %}
+
+{% block firstrow %}
+
+    
+    <!-- Pie Chart -->
+    <div class="col">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div>
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Profile</h6>
+                </div>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <h6 class="m-0 font-weight-bold text-primary">{{ userprofile.name }}</h6>
+                <p></p>
+                <p>{{ userprofile.birth_date }}</p>
+                <p>{{ userprofile.address }}</p>
+                
+                <button type="button" class="btn btn-secondary btn-sm" href="/dashboard/editprofile">Small button</button>
+
+            </div>
+=======
 {% load static %}
 {% load crispy_forms_tags %} 
 
@@ -187,10 +237,14 @@
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="{% url 'login:home' %}">Logout</a>
                 </div>
+>>>>>>> 895d920d906c78739bbed892074bd829788cf032
             </div>
         </div>
     </div>
 
+<<<<<<< HEAD
+    {% endblock firstrow %}
+=======
     <!-- Bootstrap core JavaScript-->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -240,5 +294,6 @@
 
 
 
+>>>>>>> 895d920d906c78739bbed892074bd829788cf032
 
         

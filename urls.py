@@ -13,24 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import include, path
-import dashboard.urls as dashboard
-import login.urls as login
-import grade_viewer.urls as grade
-from django.conf import settings
-from django.conf.urls.static import static
-import task_viewer.urls as task_viewer
-
-
+from django.urls import include, path, re_path
+# import login.urls as login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('dashboard/', include(dashboard)),
-    path('login/', include(login)),
-    path('grade/', include(grade)),
-    path('task-viewer/', include(task_viewer))
+    path('login/', include('login.urls')),
+   
+    # re_path('login/', include('login.urls')),
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
