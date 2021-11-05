@@ -36,6 +36,7 @@ class Task(models.Model):
     Description = models.TextField(max_length=300)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     deadline = models.DateTimeField()
+    score = models.IntegerField()
 
     def __str__(self):
         return (str(self.Name) if self.Name else '')

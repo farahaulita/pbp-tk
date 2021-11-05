@@ -33,12 +33,15 @@ def login_view(request):
             password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None and user.is_student:
+                print("Yes student")
                 login(request, user)
                 return redirect('/dashboard/'+ user.username +'/student')
             elif user is not None and user.is_teacher:
-                 login(request, user)
-                 return redirect('/dashboard/'+ user.username +'/teacher')
+                print("Yes teacher")
+                login(request, user)
+                return redirect('/dashboard/'+ user.username +'/teacher')
             else:
+                print("Nope")
                 messages.info(request, 'Username OR password is incorrect')
     context = {}
     return render(request, 'login.html', context)
@@ -46,10 +49,3 @@ def login_view(request):
 def logoutUser(request):
     logout(request)
     return redirect('login:home')
-
-def student(request):
-    return render(request,'student.html')   #dashboard msg msg
-
-
-def teacher(request):
-    return render(request,'teacher.html')   #dashboard msgmsrg
