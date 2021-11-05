@@ -18,6 +18,8 @@ from django.urls import include, path
 import dashboard.urls as dashboard
 import login.urls as login
 import grade_viewer.urls as grade
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -28,3 +30,5 @@ urlpatterns = [
     path('grade/', include(grade))
 
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
