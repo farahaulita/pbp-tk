@@ -14,13 +14,16 @@
     <title>LeaN - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/sb-admin-2.css' %}" rel="stylesheet">
+
+    
 
 </head>
 
@@ -37,7 +40,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">LeaN</div>
+                <div class="sidebar-brand-text mx-3 text-capitalize">LeaN</div>
             </a>
 
             <!-- Divider -->
@@ -97,14 +100,14 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user }}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="{% static 'img/undraw_profile.svg' %}">
+                                    src={{profile.image.url}}>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href= "https://pbp-tk-e04.herokuapp.com/dashboard/{{ user }}/profile" >
+                                <a class="dropdown-item" href= "http://127.0.0.1:8000/dashboard/{{ user }}/profile" >
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -134,7 +137,7 @@
 
                     <!-- Content Row 1 untuk student-->
 
-                    <div class="row">
+                    <div class="row  pb-4">
                         {% block firstrow %}
                         {% endblock firstrow %}
                         
@@ -142,11 +145,15 @@
 
                     <!-- Content row 2, subjects untuk teacher-->
 
-                    <div class="row">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4 px-4  ">
+                        <h1 class="h3 mb-0 text-gray-800">Classes</h1>
+                        
+                    </div>
+
                         {% block secondrow %}
                         {% endblock secondrow %}
                         
-                    </div>
+                 
 
     
                 <!-- /.container-fluid -->
@@ -183,7 +190,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="https://pbp-tk-e04.herokuapp.com/dashboard/logout">Logout</a>
+                    <a class="btn btn-primary" href="http://127.0.0.1:8000/dashboard/logout">Logout</a>
                 </div>
             </div>
         </div>
@@ -205,6 +212,33 @@
     <!-- Page level custom scripts -->
     <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
     <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+                $('#ajax').submit(function(e) {
+                    e.preventDefault();  // disables submit's default action
+                    var data = new FormData($('#ajax').get(0));
+                    console.log(data);
+
+                    $.ajax({
+                        url: '/upload/',
+                        type: 'POST',
+                        data: data,
+                        processData: false,
+                        contentType: false,
+                        success: function(data) {
+                            data = JSON.parse(data); // converts string of json to object
+                            $('#photo').html('<img src="'+data.url+ '" />');
+                            // <h2>title</h2> You do not use 'title' in your project !!
+                            // alt=title see previous comment
+                        }
+                    });
+                    return false;
+                });
+            });
+            </script>
+
+    
 
 </body>
 
