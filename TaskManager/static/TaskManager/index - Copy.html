@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'form/fonts/icomoon/style.cs'%}">
+
+    <link rel="stylesheet" href="{% static 'form/css/owl.carousel.min.css'%}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'form/css/bootstrap.min.css'%}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'form/css/style.css'%}">
+
+
+    <link href="{% static 'dashboard/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{% static 'dashboard/css/sb-admin-2.css' %}" rel="stylesheet">
+
+    <title>Contact Form #3</title>
+  </head>
+  <body>
+  
+
+  <div class="content">
+    
+
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+          <!-- Sidebar - Brand -->
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+              <div class="sidebar-brand-icon rotate-n-15">
+                  <i class="fas fa-laugh-wink"></i>
+              </div>
+              <div class="sidebar-brand-text mx-3 text-capitalize">LeaN</div>
+          </a>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider my-0">
+
+          <!-- Nav Item - Dashboard -->
+          <li class="nav-item active">
+              <a class="nav-link" href="/dashboard/{{user}}/teacher">
+                  <i class="fas fa-fw fa-tachometer-alt"></i>
+                  <span>Dashboard</span></a>
+          </li>
+          {% block navbar %}
+
+          
+
+          {% endblock navbar %}
+
+          
+          
+
+          <!-- Sidebar Toggler (Sidebar) -->
+          <div class="text-center d-none d-md-inline">
+              <button class="rounded-circle border-0" id="sidebarToggle"></button>
+          </div>
+
+          
+
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+
+          <!-- Main Content -->
+          <div id="content">
+
+              <!-- Topbar -->
+              <!-- End of Topbar -->
+
+              <!-- Begin Page Content -->
+              <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                  <h1 class="h3 mb-0 text-gray-800"style ="margin-left: 3%; font-size: 250%">Add Task</h1>
+                      
+              </div>
+              <h1 class="nama-subjek" style="color: blueviolet; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; margin-left: 3%; font-size: 200%;">{{subject}}</h1>
+              </br>
+              </br>
+
+                  <!-- Page Heading -->
+
+                  <!-- Content Row 1 untuk student-->
+                  
+                  <div class="container">
+                    <div class="row align-items-center">
+                      <div class="col-lg-6">
+                        <div class="box">
+                          <h3 class="heading">New Task</h3>
+                          <form class="mb-5" method="post" id="contactForm" name="contactForm">
+                            <div class="row">
+                              
+                              <div class="col-md-12 form-group">
+                                <label for="name" class="col-form-label">Name</label>
+                                <input type="text" class="form-control" maxlength="255" name="Name" required id="id_Name" aria-required="true">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12 form-group">
+                                <label for="email" class="col-form-label">Deadline</label>
+                                <input type="datetime-local" class="form-control" name="deadline" required id="id_deadline" aria-required="true">
+                              </div>
+                            </div>
+              
+                            <div class="row mb-3">
+                              <div class="col-md-12 form-group">
+                                <label for="message" class="col-form-label">Message</label>
+                                <textarea class="form-control" name="Description" maxlength="300" required id="id_Description" cols="30" rows="7" aria-required="true" spellcheck="false"></textarea>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <input type="submit" value="Add Task" class="btn btn-block btn-primary rounded-0 py-2 px-4">
+                                <span class="submitting"></span>
+                              </div>
+                            </div>
+                          </form>
+              
+                          <div id="form-message-warning mt-4"></div> 
+                          <div id="form-message-success">
+                            Your message was sent, thank you!
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Content row 2, subjects untuk teacher-->
+
+
+              <!-- /.container-fluid -->
+
+          </div>
+
+          <!-- End of Main Content -->
+
+          <!-- Footer -->
+          
+          <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+  </div>
+
+    
+    
+
+    <script src="{% static 'form/js/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'form/js/popper.min.js'%}"></script>
+    <script src="{% static 'form/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'form/js/jquery.validate.min.js'%}"></script>
+    <script src="{% static 'form/js/main.js'%}"></script>
+        <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'dashboard/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{% static 'dashboard/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{% static 'dashboard/js/sb-admin-2.min.js' %}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{% static 'dashboard/vendor/chart.js/Chart.min.js' %}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{% static 'dashboard/js/demo/chart-area-demo.js' %}"></script>
+    <script src="{% static 'dashboard/js/demo/chart-pie-demo.js' %}"></script>
+  </body>
+</html>
