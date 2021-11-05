@@ -19,43 +19,6 @@ def login_view(request):
         userrole = request.user
 
         if userrole.is_student:
-<<<<<<< HEAD
-            return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+userrole.get_username()+'/student')
-        
-        else :
-            return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+userrole.get_username()+'/teacher')
-        
-        pass
-    else: 
-        # form = LoginForm(request.POST or None)
-        # temp = None
-        if request.method == 'GET':
-            # if form.is_valid():
-            username = request.GET.get('username')
-            password = request.GET.get('password')
-            user = authenticate(request, username=username, password=password)
-            if user is not None and user.is_student:
-                login(request, user)
-                return redirect('/dashboard/'+ user.username +'/student')
-            elif user is not None and user.is_teacher:
-                 login(request, user)
-                 return redirect('/dashboard/'+ user.username +'/teacher')
-            else:
-                messages.info(request, 'Username OR password is incorrect')
-    context ={}
-    return render(request, 'login.html', context)
-
-def logoutUser(request):
-	logout(request)
-	return redirect('login')
-
-def student(request):
-    return render(request,'student.html')   #dashboard msg msg
-
-
-def teacher(request):
-    return render(request,'teacher.html')   #dashboard msgmsrg
-=======
             return redirect('/dashboard/'+userrole.get_username()+'/student')
         
         else :
@@ -86,4 +49,3 @@ def teacher(request):
 def logoutUser(request):
     logout(request)
     return redirect('login:home')
->>>>>>> 895d920d906c78739bbed892074bd829788cf032

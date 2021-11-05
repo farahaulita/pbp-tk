@@ -5,10 +5,7 @@ from django.http import  HttpResponseRedirect
 from login.models import User
 from .models import Profile
 from .forms import ProfileForm
-<<<<<<< HEAD
-=======
 from django.http import JsonResponse
->>>>>>> 895d920d906c78739bbed892074bd829788cf032
 
 
 # Create your views here.
@@ -18,14 +15,6 @@ from django.http import JsonResponse
 def dashboard_student(request,username):
 
     student = request.user
-<<<<<<< HEAD
-
-    if student.is_student:
-        return render(request, 'dashboard_student.html', {'user':student.get_username(), 'subjects': student.subjects.all()})
-    
-    else:
-        return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+student.get_username()+'/teacher')
-=======
     #subject = student.subjects.all()
     #tasks = subject.task_set.all()
 
@@ -34,7 +23,6 @@ def dashboard_student(request,username):
     
     else:
         return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+student.get_username()+'/teacher')
->>>>>>> 895d920d906c78739bbed892074bd829788cf032
         
    
 
@@ -45,35 +33,6 @@ def dashboard_teacher(request,username):
     teacher = request.user
 
     if teacher.is_teacher:
-<<<<<<< HEAD
-        return render(request, 'dashboard_teacher.html', {'user':teacher.get_username(), 'subjects': teacher.subjects.all()})
-
-    else:
-        return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+teacher.get_username()+'/student')
-    
-
-
-def profile(request,username):
-    userprofile = request.user.profile
-    response = {'userprofile' : userprofile}
-    return render(request, 'profile.html', response)
-
-
-def editprofile(request,username):
-    userrole =  request.user
-    if request.method == 'POST':
-        form = ProfileForm(request.POST or None)
-
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('http://127.0.0.1:8000/dashboard/'+userrole.get_username()+'/profile')
-
-    else:
-        form = ProfileForm()
-
-    response = {'form':form
-}
-=======
         return render(request, 'dashboard_teacher.html', {'profile': teacher.profile,'user':teacher.get_username(), 'subjects': teacher.subjects.all(),})
 
     else:
@@ -112,6 +71,5 @@ def editprofile(request,username):
 
 
     response = {'form':form , 'profile': userrole.profile,'user':userrole.get_username(),}
->>>>>>> 895d920d906c78739bbed892074bd829788cf032
 
     return render(request, 'profileform.html', response )
