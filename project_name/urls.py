@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import include, path
 import dashboard.urls as dashboard
 import login.urls as login
-import grade_viewer.urls as grade
 
 
 urlpatterns = [
@@ -25,5 +24,4 @@ urlpatterns = [
     path('', include('main.urls')),
     path('dashboard/', include(dashboard)),
     path('login/', include(login)),
-    path('grade/', include(grade)),
 ]
