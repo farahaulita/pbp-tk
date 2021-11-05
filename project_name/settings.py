@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'dashboard',
     'login',
     'grade_viewer',
+
     
 ]
 
@@ -170,5 +171,6 @@ for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
 
 # Enable compression and caching features of whitenoise.
 # You can remove this if it causes problems on your setup.
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_STORAGE =  'django.contrib.staticfiles.storage.StaticFilesStorage' 
 

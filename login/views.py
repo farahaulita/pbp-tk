@@ -19,35 +19,33 @@ def login_view(request):
         userrole = request.user
 
         if userrole.is_student:
-            return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+userrole.get_username()+'/student')
+            return redirect('/dashboard/'+userrole.get_username()+'/student')
         
         else :
-            return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+userrole.get_username()+'/teacher')
+            return redirect('/dashboard/'+userrole.get_username()+'/teacher')
         
-        pass
     else: 
         # form = LoginForm(request.POST or None)
         # temp = None
-        if request.method == 'GET':
+        if request.method == 'POST':
             # if form.is_valid():
-            username = request.GET.get('username')
-            password = request.GET.get('password')
-            user = authenticate(request, username=username, password=password)
+            username = request.POST.get('username')
+            password = request.POST.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None and user.is_student:
                 login(request, user)
-                return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+userrole.get_username()+'/student')
+                return redirect('/dashboard/'+ user.username +'/student')
             elif user is not None and user.is_teacher:
                  login(request, user)
-                 return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+userrole.get_username()+'/teacher')
+                 return redirect('/dashboard/'+ user.username +'/teacher')
             else:
                 messages.info(request, 'Username OR password is incorrect')
-    context ={}
+    context = {}
     return render(request, 'login.html', context)
 
 def logoutUser(request):
- logout(request)
- return redirect('login')
+    logout(request)
+    return redirect('login:home')
 
 def student(request):
     return render(request,'student.html')   #dashboard msg msg
