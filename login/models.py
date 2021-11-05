@@ -50,3 +50,4 @@ class Submissions(models.Model):
     comment = models.TextField(default="")
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     murid = models.ForeignKey(User, on_delete=models.CASCADE)
+    nilai = models.IntegerField()

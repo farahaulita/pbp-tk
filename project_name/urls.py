@@ -31,7 +31,7 @@ urlpatterns = [
     path('dashboard/', include(dashboard)),
     path('login/', include(login)),
     path('grade/', include(grade)),
-    path('task-viewer/', include(task_viewer)).
+    path('task-viewer/', include(task_viewer)),
     path('taskmanager/', include(taskmanager)),
 
 ]
