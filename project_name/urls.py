@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('login/', include('login.urls')),
-    path('', include('TaskManager.urls')),
+    path('task-manager/', include('TaskManager.urls')),
     path('dashboard/', include('dashboard.urls')),
-    path('', include('task_viewer.urls'))
+    path('task-viewer/', include('task_viewer.urls'))
 ]
