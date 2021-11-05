@@ -59,18 +59,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'main',
-<<<<<<< HEAD
-    'TaskManager',
-    'login',
-    'dashboard',
-    'task_viewer',
-=======
     'dashboard',
     'login',
     'grade_viewer',
 
     
->>>>>>> 895d920d906c78739bbed892074bd829788cf032
 ]
 
 MIDDLEWARE = [
