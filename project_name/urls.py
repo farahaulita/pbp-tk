@@ -15,13 +15,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+import dashboard.urls as dashboard
+import login.urls as login
+import grade_viewer.urls as grade
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
+<<<<<<< HEAD
     path('login/', include('login.urls')),
     path('task-manager/', include('TaskManager.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('task-viewer/', include('task_viewer.urls'))
+=======
+    path('dashboard/', include(dashboard)),
+    path('login/', include(login)),
+    path('grade/', include(grade))
+
+>>>>>>> 895d920d906c78739bbed892074bd829788cf032
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

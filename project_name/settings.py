@@ -57,11 +57,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
     'main',
+<<<<<<< HEAD
     'TaskManager',
     'login',
     'dashboard',
     'task_viewer',
+=======
+    'dashboard',
+    'login',
+    'grade_viewer',
+
+    
+>>>>>>> 895d920d906c78739bbed892074bd829788cf032
 ]
 
 MIDDLEWARE = [
@@ -172,4 +181,10 @@ for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
 
 # Enable compression and caching features of whitenoise.
 # You can remove this if it causes problems on your setup.
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_STORAGE =  'django.contrib.staticfiles.storage.StaticFilesStorage' 
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+MEDIA_URL = '/media/'
+
