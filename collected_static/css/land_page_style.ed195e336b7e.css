@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    color: white;
+    background-color: #181c2c;
+}
+
+.navbar {
+    background-color: transparent !important;
+}
+
+.custom-bg {
+    display: flex !important;
+    flex-direction: row;
+    padding: 0;
+}
+
+.custom-bg img {
+    width: 50vw;
+}
+
+#fillScreen {
+    height: 100vh;
+    width: 100vw;
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7064d4;
+    width: 50vw;
+}
+
+.square {
+    padding: 50px;
+}
+
+.header-content .title {
+    margin-bottom: 1.2vw;
+    font-size: 3.3vw;
+    font-family: 'Inter', sans-serif;
+}
+
+.header-content .main-content {
+    font-size: 1.5vw;
+}
+
