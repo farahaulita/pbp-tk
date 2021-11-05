@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 import datetime
+from django.utils import timezone
 
 # Create your models here.
 class Subject(models.Model):
@@ -27,7 +28,7 @@ class Task(models.Model):
 class Submissions(models.Model):
     NamaMurid = models.CharField(max_length=300)
     file = models.FileField()
-    date = models.DateTimeField(default=datetime.datetime.now())
+    date = models.DateTimeField(default=timezone.now())
     ontime = models.BooleanField(default=True)
     comment = models.TextField(default="")
     task = models.ForeignKey(Task, on_delete=models.CASCADE)

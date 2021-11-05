@@ -3,6 +3,7 @@ from django.http.response import HttpResponseRedirect
 from login.models import Subject, Task, Submissions
 from django.contrib.auth.decorators import login_required
 from .forms import FileForm
+import datetime
 
 
 @login_required(login_url='login')
@@ -16,7 +17,7 @@ def view_task(request, name, identitas, tambahan):
     if pengguna.get_username() == name:
         return render(request, 'task_viewer.html', response)
     else:
-        return HttpResponseRedirect("http://127.0.0.1:8000/view-task/" + pengguna.get_username() + "/" + str(subject.id) + "/" + subject.Name + "-" + subject.Class)
+        return HttpResponseRedirect("http://127.0.0.1:8000/task-viewer/view-task/" + pengguna.get_username() + "/" + str(subject.id) + "/" + subject.Name + "-" + subject.Class)
 
 @login_required(login_url='login')
 def view_subject_task(request, name, identitas, tambahan, id):
@@ -28,7 +29,12 @@ def view_subject_task(request, name, identitas, tambahan, id):
             saved.murid = request.user
             saved.NamaMurid = request.user.get_username()
             saved.save()
-            return HttpResponseRedirect('http://localhost:8000/view-task/' + request.user.get_username() + "/" + str(identitas) + "/" + tambahan)
+
+            if saved.date > saved.task.deadline:
+                saved.ontime = False
+
+            saved.save()
+            return HttpResponseRedirect('http://localhost:8000/task-viewer/view-task/' + request.user.get_username() + "/" + str(identitas) + "/" + tambahan)
 
     else:
         tugas = Task.objects.get(pk=id)
