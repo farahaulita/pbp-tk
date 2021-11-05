@@ -7,5 +7,7 @@ class ProfileForm(forms.Form):
 
     class Meta:
         model = Profile
-        fields = ('name', 'birth_date', 'address', )
-        widgets = {'birth_date': forms.DateInput(attrs={'type':'date'}),}
+        fields = ['image','name','birth_date','address']
+
+
+

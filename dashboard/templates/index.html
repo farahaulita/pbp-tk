@@ -23,6 +23,8 @@
     <!-- Custom styles for this template-->
     <link href="{% static 'css/sb-admin-2.css' %}" rel="stylesheet">
 
+    
+
 </head>
 
 <body id="page-top">
@@ -98,9 +100,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user }}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="{% static 'img/undraw_profile.svg' %}">
+                                    src={{profile.image.url}}>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -206,6 +208,33 @@
     <!-- Page level custom scripts -->
     <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
     <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+                $('#ajax').submit(function(e) {
+                    e.preventDefault();  // disables submit's default action
+                    var data = new FormData($('#ajax').get(0));
+                    console.log(data);
+
+                    $.ajax({
+                        url: '/upload/',
+                        type: 'POST',
+                        data: data,
+                        processData: false,
+                        contentType: false,
+                        success: function(data) {
+                            data = JSON.parse(data); // converts string of json to object
+                            $('#photo').html('<img src="'+data.url+ '" />');
+                            // <h2>title</h2> You do not use 'title' in your project !!
+                            // alt=title see previous comment
+                        }
+                    });
+                    return false;
+                });
+            });
+            </script>
+
+    
 
 </body>
 
