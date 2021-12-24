@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render
 from django.http import  HttpResponseRedirect
@@ -22,7 +22,7 @@ def dashboard_student(request,username):
         return render(request, 'dashboard_student.html', {'profile': student.profile ,'user':student.get_username(), 'subjects': student.subjects.all(), })
     
     else:
-        return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+student.get_username()+'/teacher')
+        return redirect('/dashboard/'+student.get_username()+'/teacher')
         
    
 
@@ -36,7 +36,7 @@ def dashboard_teacher(request,username):
         return render(request, 'dashboard_teacher.html', {'profile': teacher.profile,'user':teacher.get_username(), 'subjects': teacher.subjects.all(),})
 
     else:
-        return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+teacher.get_username()+'/student')
+        return redirect('/dashboard/'+teacher.get_username()+'/student')
     
 
 @login_required(login_url="/login/")
@@ -62,7 +62,7 @@ def editprofile(request,username):
             # ...
             # redirect to a new URL:
            
-            return HttpResponseRedirect('http://pbp-tk-e04.herokuapp.com/dashboard/'+userrole.get_username()+'/profile')
+            return redirect('/dashboard/'+userrole.get_username()+'/profile')
 
     # if a GET (or any other method) we'll create a blank form
     else:

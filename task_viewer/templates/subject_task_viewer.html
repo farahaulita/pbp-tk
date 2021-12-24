@@ -39,40 +39,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-
-  <!-- <div class="container p-3 my-3 bg-dark">
-    <h5 style="text-align: center; color: white; margin-bottom: 15px;">{{tugas.Name}}</h5>
-    <p style="color: white; padding-left: 5px;">{{tugas.Description}} tugas ini harus dikumpulkan tepat waktu</p>
-    <p style="color: white; padding-left: 5px;">Deadline: {{tugas.deadline}}</p>
-  </div> -->
-
-  <!-- <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Upload</button>
-  </form>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        function uploadFile() {
-            var data = new FormData();
-            data.append("file", $("input[id^='file']")[0].files[0]);
-            data.append("csrfmiddlewaretoken", "{{ csrf_token }}");
-            $.ajax({
-                method: "POST",
-                url: "/upload/",
-                processData: false,
-                contentType: false,
-                mimeType: "multipart/form-data",
-                data: data,
-                success: function(res) {
-                    console.log(res)
-                }
-            })
-        }
-    </script> -->
-
-
 <div id="wrapper">
 
   <!-- Sidebar -->
@@ -121,7 +87,7 @@
       <div id="content">
 
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-              <h1 class="h3 mb-0 text-gray-800"style ="margin-left: 3%; font-size: 250%">Submissio</h1>
+              <h1 class="h3 mb-0 text-gray-800"style ="margin-left: 3%; font-size: 250%">Submission</h1>
                   
           </div>
           <h1 class="nama-subjek" style="color: blueviolet; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; margin-left: 3%; font-size: 200%;">{{subject}}</h1>

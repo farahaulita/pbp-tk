@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from datetime import datetime
 
 # Create your models here.
 class Subject(models.Model):
@@ -35,7 +36,7 @@ class Task(models.Model):
     Name = models.CharField(max_length=255)
     Description = models.TextField(max_length=300)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
-    deadline = models.DateTimeField()
+    deadline = models.DateTimeField(default=datetime.now)
     score = models.IntegerField()
 
     def __str__(self):
@@ -45,7 +46,7 @@ class Submissions(models.Model):
     NamaMurid = models.CharField(max_length=300)
     title = models.CharField(max_length=50)
     file = models.FileField()
-    date = models.DateTimeField()
+    date = models.DateTimeField(default=datetime.now)
     ontime = models.BooleanField()
     comment = models.TextField(default="")
     task = models.ForeignKey(Task, on_delete=models.CASCADE)

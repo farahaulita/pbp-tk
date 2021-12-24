@@ -66,7 +66,7 @@ rel="stylesheet">
   <div id="content">
     <!-- Topbar -->
     <nav class="navbar navbar-expand navbar-custom topbar mb-4 static-top shadow">
-      <a class="text-left" style="color: white;" href="{% url 'dashboard' username=student %}"><- Dashboard</a>
+      <a class="text-left" style="color: white;" href="{% url 'dashboard_student' username=student %}"><- Dashboard</a>
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ms-auto">
           <!-- Nav Item - Search Dropdown (Visible Only XS) -->
@@ -79,7 +79,7 @@ rel="stylesheet">
           </a>
           <!-- Dropdown - User Information -->
           <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href= "https://pbp-tk-e04.herokuapp.com/dashboard/{{ user }}/profile" >
+            <a class="dropdown-item" href= "{% url 'profile' username=student%}" >
               <i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>Profile</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
@@ -145,7 +145,7 @@ rel="stylesheet">
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
               <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
-              <a class="btn btn-primary" href="https://pbp-tk-e04.herokuapp.com/dashboard/logout">Logout</a>
+              <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
             </div>
           </div>
         </div>

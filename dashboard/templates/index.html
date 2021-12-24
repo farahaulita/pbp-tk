@@ -22,12 +22,6 @@
 
     <!-- Custom styles for this template-->
     <link href="{% static 'css/sb-admin-2.css' %}" rel="stylesheet">
-
-<<<<<<< HEAD
-=======
-    
-
->>>>>>> 895d920d906c78739bbed892074bd829788cf032
 </head>
 
 <body id="page-top">
@@ -103,20 +97,14 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<<<<<<< HEAD
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="{% static 'img/undraw_profile.svg' %}">
-=======
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user }}</span>
                                 <img class="img-profile rounded-circle"
                                     src={{profile.image.url}}>
->>>>>>> 895d920d906c78739bbed892074bd829788cf032
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href= "http://127.0.0.1:8000/dashboard/{{ user }}/profile" >
+                                <a class="dropdown-item" href= "{% url 'profile' user %}" >
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -145,26 +133,13 @@
                    
 
                     <!-- Content Row 1 untuk student-->
-
-<<<<<<< HEAD
-                    <div class="row">
-=======
                     <div class="row  pb-4">
->>>>>>> 895d920d906c78739bbed892074bd829788cf032
                         {% block firstrow %}
                         {% endblock firstrow %}
                         
                     </div>
 
                     <!-- Content row 2, subjects untuk teacher-->
-
-<<<<<<< HEAD
-                    <div class="row">
-                        {% block secondrow %}
-                        {% endblock secondrow %}
-                        
-                    </div>
-=======
                     <div class="d-sm-flex align-items-center justify-content-between mb-4 px-4  ">
                         <h1 class="h3 mb-0 text-gray-800">Classes</h1>
                         
@@ -172,9 +147,6 @@
 
                         {% block secondrow %}
                         {% endblock secondrow %}
-                        
-                 
->>>>>>> 895d920d906c78739bbed892074bd829788cf032
 
     
                 <!-- /.container-fluid -->
@@ -211,11 +183,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-<<<<<<< HEAD
-                    <a class="btn btn-primary" href="http://127.0.0.1:8000/dashboard/logout">Logout</a>
-=======
-                    <a class="btn btn-primary" href="{% url 'login:home' %}">Logout</a>
->>>>>>> 895d920d906c78739bbed892074bd829788cf032
+                    <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
                 </div>
             </div>
         </div>
@@ -237,9 +205,6 @@
     <!-- Page level custom scripts -->
     <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
     <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
-
-<<<<<<< HEAD
-=======
     <script>
         $(document).ready(function() {
                 $('#ajax').submit(function(e) {
@@ -264,10 +229,6 @@
                 });
             });
             </script>
-
-    
-
->>>>>>> 895d920d906c78739bbed892074bd829788cf032
 </body>
 
 </html>

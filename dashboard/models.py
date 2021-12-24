@@ -2,14 +2,14 @@ from django.db import models
 from login.models import User #add this
 from django.dispatch import receiver #add this
 from django.db.models.signals import post_save
-from datetime import date
+from datetime import datetime
 # SOURCE: https://www.ordinarycoders.com/django-custom-user-profile
 
 class Profile(models.Model):   
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default = 'undraw_profile.svg', upload_to='profile_pics')
     name = models.CharField(max_length=256, default="Enter Name")
-    birth_date = models.DateField(default=date.today())
+    birth_date = models.DateField(default=datetime.now)
     address = models.CharField(max_length=256, default="Enter Address")
 	
     

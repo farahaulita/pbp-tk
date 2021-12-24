@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import AddTaskForm, GraderForm
 # Create your views here.
 
-@login_required(login_url='login')
+@login_required(login_url='/login/')
 def taskmanager(request, name, identitas, tambahan):
     elemensekolah = request.user
     subject = Subject.objects.get(pk=identitas)
@@ -18,9 +18,9 @@ def taskmanager(request, name, identitas, tambahan):
     if elemensekolah.get_username() == name:
         return render(request, 'cardextend.html', response)
     else:
-        return redirect("http://127.0.0.1:8000/taskmanager/"+elemensekolah.get_username()+"/"+str(subject.id)+"/"+subject.Name+"-"+subject.Class)
+        return redirect("/taskmanager/"+elemensekolah.get_username()+"/"+str(subject.id)+"/"+subject.Name+"-"+subject.Class)
 
-@login_required(login_url='login')
+@login_required(login_url='/login/')
 def add_task(request, name, identitas, tambahan):
     form = AddTaskForm()
     if request.method == 'POST':
@@ -29,22 +29,22 @@ def add_task(request, name, identitas, tambahan):
             formtemp = form.save(commit=False)
             formtemp.subject = Subject.objects.get(pk=identitas)
             formtemp.save()
-            return redirect("http://127.0.0.1:8000/taskmanager/"+request.user.get_username()+"/"+str(formtemp.subject.id)+"/"+formtemp.subject.Name+"-"+formtemp.subject.Class)
+            return redirect("/taskmanager/"+request.user.get_username()+"/"+str(formtemp.subject.id)+"/"+formtemp.subject.Name+"-"+formtemp.subject.Class)
     response = {'form':form}
     return render(request, 'AddTask3.0.html', response)
 
-@login_required(login_url='login')
+@login_required(login_url='/login/')
 def edit_task(request, name, subjectid, identitas, tambahan):
     form = Task.objects.get(pk=identitas)
     if request.method == 'POST':
         form = AddTaskForm(request.POST, instance=form)
         if form.is_valid():
             model = form.save()
-            return redirect("http://127.0.0.1:8000/taskmanager/"+request.user.get_username()+"/"+str(model.subject.id)+"/"+model.subject.Name+"-"+model.subject.Class)
+            return redirect("/taskmanager/"+request.user.get_username()+"/"+str(model.subject.id)+"/"+model.subject.Name+"-"+model.subject.Class)
     response = {'form':form}
     return render(request, 'frontview.html', response)
 
-@login_required(login_url='login')
+@login_required(login_url='/login/')
 def deletetask(request, name, subjectid, identitas, tambahan):
     model = Task.objects.get(pk=identitas)
     model.delete()
@@ -57,7 +57,7 @@ def deletetask(request, name, subjectid, identitas, tambahan):
     return JsonResponse(data)
 
 
-@login_required(login_url='login')
+@login_required(login_url='/login/')
 def viewsubmissions(request, name, subjectid, identitas, tambahan):
     task = Task.objects.get(pk=identitas)
     submissions = task.submissions_set.all()
@@ -73,7 +73,7 @@ def grader(request, name,subjectid, identitas, tambahan, idfile):
         form = GraderForm(request.POST, instance=form)
         if form.is_valid():
             form.save()
-            return redirect("http://127.0.0.1:8000/taskmanager/"+request.user.get_username()+"/"+str(subjectid)+"/"+tambahan+"/"+str(identitas)+"/"+"submissions")
+            return redirect("/taskmanager/"+request.user.get_username()+"/"+str(subjectid)+"/"+tambahan+"/"+str(identitas)+"/"+"submissions")
     response = {'form':form}
     return render(request, 'grader.html', response)
 

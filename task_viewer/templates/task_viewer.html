@@ -115,7 +115,7 @@
                                             {{task.Description}}
                                           </div>
                                           <div class="card-footer mt-auto text-center;" style="border-radius: 0 0 15px 15px; background-color: #7064d4; padding-top: 0;" >
-                                            <a style="margin-top: 10px; font-size:larger; " href='http://127.0.0.1:8000/task-viewer/view-subject-task/{{user}}/{{subject.id}}/{{subject.Name}}-{{subject.Class}}/{{task.id}}' class="btn button-color btn-block">Upload File</a>
+                                            <a style="margin-top: 10px; font-size:larger; " href="{% url 'view-subject-task' name=user identitas=subject.id tambahan=subject id=task.id %}" class="btn button-color btn-block">Upload File</a>
                                           </div>
                                       </div>
                                     </br>
@@ -139,32 +139,6 @@
 
 </div>
 
-
-
-    <!-- <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4">
-            {#% for task in tasks %#}
-          <div class="card" style="height: 450px; border-radius: 15px 15px 15px 15px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);">
-              <div class="card-header" style="background-color:#7064d4; border-radius: 15px 15px 15px 15px;">
-                <h5 style="text-align: center; color: white;">{#{task.name}#} Tugas Makalah Bahasa Indonesia</h5>
-              </div>
-              <div class="card-body d-flex flex-column scroll">
-                <h6 style="text-align: left; font-weight: 1000; font-size: larger;">Deskripsi</h6>
-                </br>
-                <!-- {{task.description}} -->
-                <!-- Tugas ini sangat susah
-              </div>
-              <div class="card-footer mt-auto text-center;" style="border-radius: 0 0 15px 15px; background-color: #7064d4; padding-top: 0;" >
-                <a style="margin-top: 10px; font-size:larger;" href="http://localhost:8000/view-subject-task" class="btn button-color btn-block">Upload File</a>
-              </div>
-          </div>
-        </br>
-      </br>
-            {#% endfor %#}
-        </div>
-      </div>
-    </div> --> -->
 
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>

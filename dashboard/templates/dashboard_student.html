@@ -78,8 +78,8 @@
                 <div class="card shadow ">
                     <div class="card-body">
                       <h5 class="card-title">{{subject}}</h5>
-                      <p><a href='pageRedirect("{{key}}")' style="margin-top: 10px; margin-left: 3%; color: whitesmoke;" class="btn button-color btn-primary">Task Viewer</a>
-                        <a href="{% url 'grade' name=subject %}" style="margin-top: 10px; margin-left: 3%;  color: whitesmoke;" class="btn button-color btn-primary">View Grades</a></p> 
+                      <p><a href="{% url 'view-task' name=user identitas=subject.id tambahan=subject %}" style="margin-top: 10px; margin-left: 3%; color: whitesmoke;" class="btn button-color btn-primary">Task Viewer</a>
+                        <a href="{% url 'grade' subject %}" style="margin-top: 10px; margin-left: 3%;  color: whitesmoke;" class="btn button-color btn-primary">View Grades</a></p> 
                     </div>
                 </div>
 
@@ -90,42 +90,3 @@
         {% endfor %}
 
         {% endblock secondrow %}
-
-
-              <!-- Card Header - Dropdown 
-        <div class="col">
-            <div class="card shadow mb-4">
-                
-                <div>
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Subject</h6>
-                        <a href='pageRedirect("{{key}}")' style="margin-top: 10px; margin-left: 3%; font-size:larger; color: whitesmoke;" class="btn button-color btn-primary">Task Viewer</a>
-                    <a href='' style="margin-top: 10px; margin-left: 3%; font-size:larger; color: whitesmoke;" class="btn button-color btn-primary">View Grades</a>
-    
-                    </div>
-                </div>
-            
-            
-        </div>-->
-
-        
-
-        
-            <!-- Card Body 
-            {% for subject in subjects %}
-                <div class="card-body">
-                    {{subject}}
-                    <a href='pageRedirect("{{key}}")' style="margin-top: 10px; margin-left: 3%; font-size:larger; color: whitesmoke;" class="btn button-color btn-primary">Task Viewer</a>
-                    <a href="{% url 'grade' name=subject %}" style="margin-top: 10px; margin-left: 3%; font-size:larger; color: whitesmoke;" class="btn button-color btn-primary">View Grades</a>
-                </div>
-            {% endfor %}
-        </div>
-    </div>-->
-
-
-
-
-
-
-
-<!-- Area Chart -->
